@@ -6,12 +6,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
     <link rel="stylesheet" href="/styles/main.scss" />
+    <link rel="stylesheet" href="/styles/form.scss" />
+
   </head>
   <script type="module" src="/components/nav.ts" type="text/javascript" defer></script>
+  <script type="module" src="/scripts/form.ts" defer></script>
   <body>
     <nav-component></nav-component>
     <main>
-      
+      <h1>HTML 5 Form</h1>
+      <form class="form" id="form">
+        <div class="form__group">
+          <label for="firstname">Firstname</label>
+          <input type="text" id="firstname" name="firstname" placeholder="Max" required />
+          <span id="firstname__validation" hidden></span>
+
+          <label for="name">Lastname</label>
+          <input
+            type="text"
+            id="lastname"
+            name="lastname"
+            placeholder="Mustermann"
+            required
+            minlength="2"
+          />
+          <span id="lastname__validation" hidden></span>
+
+          <label for="age">Age</label>
+          <input
+            type="number"
+            id="age"
+            name="age"
+            
+            required
+            placeholder="+18"
+          />
+          <span id="age__validation" hidden></span>
+        </div>
+
+        <div class="form__group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="max.mustermann@muster-ag.com"
+          />
+          <span class="email__validation"></span>
+
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="********"
+            required
+            minlength="8"
+          />
+          <span id="password__validation" hidden></span>
+
+          <label for="password-repeat">Repeat Password</label>
+          <input
+            type="password"
+            id="password-repeat"
+            name="password-repeat"
+            placeholder="********"
+            required
+            minlength="8"
+          />
+          <span id="password-repeat__validation" hidden></span>
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>
     </main>
   </body>
 </html>
