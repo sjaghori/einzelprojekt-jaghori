@@ -9,13 +9,16 @@
     "preview": "vite preview --port 3000",
     "prod": "npm run build && npm run preview",
     "prepare": "husky install",
-		"lint": "npm run prettier && npm run eslint && npm run stylelint",
-		"lint:fix": "npm run prettier:fix && npm run eslint:fix && npm run stylelint:fix",
-		"eslint:base": "eslint --cache --ignore-path .gitignore",
-		"eslint": "npm run eslint:base -- .",
-		"eslint:fix:base": "npm run eslint:base -- --fix",
-		"eslint:fix": "npm run eslint:fix:base -- .",
+    "lint": "npm run prettier && npm run eslint && npm run stylelint",
+    "lint:fix": "npm run prettier:fix && npm run eslint:fix && npm run stylelint:fix",
+    "eslint:base": "eslint --cache --ignore-path .gitignore",
+    "eslint": "npm run eslint:base -- .",
+    "eslint:fix:base": "npm run eslint:base -- --fix",
+    "eslint:fix": "npm run eslint:fix:base -- .",
     "lint-staged": "lint-staged"
+  },
+  "dependencies": {
+    "axios": "^0.27.2"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.38.0",
@@ -32,7 +35,8 @@
   },
   "lint-staged": {
     "$schema": "http://json.schemastore.org/lintstagedrc.schema",
-
-    "*.{js,ts,d.ts}": ["npm run eslint:base"]
+    "*.{js,ts,d.ts}": [
+      "npm run eslint:base"
+    ]
   }
 }
