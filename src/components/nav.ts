@@ -57,3 +57,5 @@ shadowRoot.appendChild(navTemplate.content);
 }
 
 customElements.define('nav-component', Header);
+
+export {}
