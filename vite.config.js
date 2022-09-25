@@ -4,6 +4,7 @@ import { resolve, join } from 'path'
 export default defineConfig({
   root: join(__dirname, 'src'),
   build: {
+    emptyOutDir: true,
     outDir: resolve(__dirname, 'dist'),
     rollupOptions: {
       input: {
