@@ -20,4 +20,4 @@ import { setupCounter } from './counter'
 //   </div>
 // `
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+// setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
