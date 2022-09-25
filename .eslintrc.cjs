@@ -13,6 +13,7 @@ module.exports = {
     sourceType: 'module',
     ecmaVersion: 2020
   },
+  ignorePatterns: ["vite.config.js"],
   rules: {
     'no-restricted-imports': [
       'error',

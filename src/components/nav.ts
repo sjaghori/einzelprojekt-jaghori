@@ -1,6 +1,4 @@
-
-
-const navTemplate = document.createElement('template');
+const navTemplate = document.createElement('template')
 
 navTemplate.innerHTML = `
 <style>
@@ -42,20 +40,22 @@ a:hover {
   </ul>
 </nav>
 </header>
-`;
+`
 
 class Header extends HTMLElement {
-constructor() {
-super();
+  // eslint-disable-next-line @typescript-eslint/no-useless-constructor
+  constructor () {
+    super()
+  }
+
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+  connectedCallback () {
+    const shadowRoot = this.attachShadow({ mode: 'closed' })
+
+    shadowRoot.appendChild(navTemplate.content)
+  }
 }
 
-connectedCallback() {
-const shadowRoot = this.attachShadow({ mode: 'closed' });
-
-shadowRoot.appendChild(navTemplate.content);
-}
-}
-
-customElements.define('nav-component', Header);
+customElements.define('nav-component', Header)
 
 export {}
