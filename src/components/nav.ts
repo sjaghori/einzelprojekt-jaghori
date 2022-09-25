@@ -1,9 +1,119 @@
 const navTemplate = document.createElement('template')
 
 navTemplate.innerHTML = `
-<head>
-<link rel="stylesheet" href="/styles/nav.scss" />
-</head>
+<style>
+  .navbar {
+    position: fixed;
+    background-color: var(--bg-primary);
+    transition: width 600ms ease;
+    overflow: hidden;
+  }
+  
+  .navbar__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .navbar__item {
+    width: 100%;
+  }
+  
+  .navbar__link {
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    filter: grayscale(100%) opacity(0.7);
+    transition: var(--transition-speed);
+  }
+  
+  .navbar__link:hover {
+    filter: grayscale(0%) opacity(1);
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+  }
+  
+  .navbar__link-text {
+    display: none;
+    margin-left: 1rem;
+  }
+  
+  .navbar__link svg {
+    width: 2rem;
+    min-width: 2rem;
+    margin: 0 1.5rem;
+  }
+  
+  .fa-primary {
+    color: #ff7eee;
+  }
+  
+  .fa-secondary {
+    color: #df49a6;
+  }
+  
+  .fa-primary,
+  .fa-secondary {
+    transition: var(--transition-speed);
+  }
+  
+  /* Small screens */
+  @media only screen and (max-width: 600px) {
+    .navbar {
+      bottom: 0;
+      width: 100vw;
+      height: 5rem;
+    }
+  
+    .logo {
+      display: none;
+    }
+  
+    .navbar__list {
+      flex-direction: row;
+    }
+  
+    .navbar__link {
+      justify-content: center;
+    }
+  
+    main {
+      margin: 0;
+    }
+  }
+  
+  /* Large screens */
+  @media only screen and (min-width: 600px) {
+    .navbar {
+      top: 0;
+      width: 5rem;
+      height: 100vh;
+    }
+  
+    .navbar:hover {
+      width: 16rem;
+    }
+  
+    .navbar:hover .navbar__link-text {
+      display: inline;
+    }
+  
+    .navbar:hover .logo svg {
+      margin-left: 11rem;
+    }
+  
+    .navbar:hover .logo-text {
+      left: 0px;
+    }
+  }
+  
+</style>  
 <header>
 <nav class="navbar">
       <ul class="navbar__list">
@@ -97,12 +207,6 @@ navTemplate.innerHTML = `
 `
 
 class Header extends HTMLElement {
-  // eslint-disable-next-line @typescript-eslint/no-useless-constructor
-  constructor () {
-    super()
-  }
-
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   connectedCallback () {
     const shadowRoot = this.attachShadow({ mode: 'closed' })
 
