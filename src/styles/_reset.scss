@@ -1,0 +1,150 @@
+/* stylelint-disable property-disallowed-list */
+
+// resets ---------------------------------------------------------------------
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+}
+
+html {
+	block-size: 100%;
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+	text-size-adjust: 100%;
+}
+
+body {
+	-webkit-font-smoothing: antialiased;
+	min-block-size: 100vh;
+}
+
+textarea {
+	resize: none;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+	content-visibility: auto;
+	-webkit-touch-callout: none;
+	-webkit-user-drag: none;
+	user-select: none;
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+button,
+label,
+input {
+	color: inherit;
+	font-size: 1em;
+	font-weight: 400;
+	line-height: 1;
+	overflow-wrap: break-word;
+}
+
+button {
+	padding: 0;
+	border: unset;
+	background: none;
+	cursor: pointer;
+}
+
+a {
+	color: currentColor;
+}
+
+mark {
+	background-color: transparent;
+}
+
+// faster klicks; don't wait 300ms for potential double-tap -------------------
+
+a,
+button {
+	touch-action: manipulation;
+}
+
+dialog {
+	width: inherit;
+	height: inherit;
+	padding: 0;
+	border: inherit;
+	background-color: inherit;
+}
+
+// disable animations ---------------------------------------------------------
+
+@media screen and (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+
+	*,
+	::before,
+	::after {
+		animation-delay: -1ms !important;
+		animation-duration: 1ms !important;
+		animation-iteration-count: 1 !important;
+		background-attachment: initial !important;
+		scroll-behavior: auto !important;
+		/* stylelint-disable time-min-milliseconds */
+		transition-delay: 0s !important;
+		transition-duration: 0s !important;
+	}
+}
+
+// animate outline on TAB-press -----------------------------------------------
+
+@media (prefers-reduced-motion: no-preference) {
+	:focus {
+		outline-offset: 5px;
+		transition: outline-offset 0.3s ease;
+	}
+}
+
+// long text-wrapping ---------------------------------------------------------
+
+.dont-break-out {
+	/* Adds a hyphen where the word breaks, if supported (No Blink) */
+	hyphens: auto;
+
+	/* These are technically the same, but use both */
+	overflow-wrap: break-word;
+	word-break: break-word;
+	word-wrap: break-word;
+}
+
+// hide content visually, but still available for ally ------------------------
+
+.visually-hidden {
+	position: absolute;
+	overflow: hidden;
+	width: 1px;
+	height: 1px;
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
